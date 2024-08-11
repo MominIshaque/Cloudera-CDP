@@ -1,0 +1,117 @@
+
+1. Go to the HDFS service. 
+2. Select Actions > Enable High Availability. A screen showing the hosts that are 
+eligible to run a standby NameNode and the JournalNodes displays. 
+3. Specify a name for the nameservice or accept the default 
+name nameservice1 and click Continue. 
+4. In the NameNode Hosts field, click Select a host. The host selection dialog box 
+displays. 
+5. In the JournalNode Hosts field, click Select hosts. The host selection dialog 
+box displays. 
+6. Check the checkboxes next to an odd number of hosts (a minimum of three) 
+to act as JournalNodes and click OK. JournalNodes should be hosted on hosts 
+with similar hardware specification as the NameNodes. Cloudera recommends 
+that you put a JournalNode each on the same hosts as the active and standby 
+NameNodes, and the third JournalNode on similar hardware, such as the 
+JobTracker. 
+7. Click Continue. 
+8. In the JournalNode Edits Directory property, enter a directory location for the 
+JournalNode edits directory into the fields for each JournalNode host. You 
+may enter only one directory for each JournalNode. The paths do not need to 
+be the same on every JournalNode. The directories you specify should be 
+empty, and must have the appropriate permissions. 
+9. Click Continue. 
+10. Cloudera Manager executes a set of commands that will stop the dependent 
+services, delete, create, and configure roles and directories as appropriate, 
+create a nameservice and failover controller, and restart the dependent 
+services and deploy the new client configuration. 
+
+
+## Configuring Hue to Work with HDFS HA ##
+1. Add the HttpFS role. 
+a. Go to the HDFS service. 
+b. Click the Instances tab. 
+c. Click Add Role Instances. 
+d. Click the text box below the HttpFS field. The Select Hosts dialog box 
+displays. 
+e. Select the host on which to run the role and click OK. 
+f. Click Continue. 
+g. Check the checkbox next to the HttpFS role and select Actions for 
+Selected > Start. 
+2. After the command has completed, go to the Hue service. 
+3. Click the Configuration tab. 
+4. Locate the HDFS Web Interface Role property or search for it by typing its 
+name in the Search box. 
+5. Select the HttpFS role you just created instead of the NameNode role, and 
+save your changes. 
+6. Restart the Hue service. 
+
+## Upgrading the Hive Metastore to Use HDFS HA ##  
+1. Go the Hive service. 
+2. Select Actions > Stop. 
+Note: You may want to stop the Hue, oozie and Impala services first, if 
+present, as they depend on the Hive service. Click Stop to confirm the 
+command. 
+3. Back up the Hive metastore database. 
+4. Select Actions > Update Hive Metastore NameNodes and confirm the 
+command. 
+5. Select Actions > Start. 
+6. Restart the Hue, oozie and Impala services if you stopped them prior to 
+updating the metastore. 1. Go to the HDFS service. 
+2. Select Actions > Enable High Availability. A screen showing the hosts that are 
+eligible to run a standby NameNode and the JournalNodes displays. 
+3. Specify a name for the nameservice or accept the default 
+name nameservice1 and click Continue. 
+4. In the NameNode Hosts field, click Select a host. The host selection dialog box 
+displays. 
+5. In the JournalNode Hosts field, click Select hosts. The host selection dialog 
+box displays. 
+6. Check the checkboxes next to an odd number of hosts (a minimum of three) 
+to act as JournalNodes and click OK. JournalNodes should be hosted on hosts 
+with similar hardware specification as the NameNodes. Cloudera recommends 
+that you put a JournalNode each on the same hosts as the active and standby 
+NameNodes, and the third JournalNode on similar hardware, such as the 
+JobTracker. 
+7. Click Continue. 
+8. In the JournalNode Edits Directory property, enter a directory location for the 
+JournalNode edits directory into the fields for each JournalNode host. You 
+may enter only one directory for each JournalNode. The paths do not need to 
+be the same on every JournalNode. The directories you specify should be 
+empty, and must have the appropriate permissions. 
+9. Click Continue. 
+10. Cloudera Manager executes a set of commands that will stop the dependent 
+services, delete, create, and configure roles and directories as appropriate, 
+create a nameservice and failover controller, and restart the dependent 
+services and deploy the new client configuration. 
+
+## Configuring Hue to Work with HDFS HA ## 
+1. Add the HttpFS role. 
+a. Go to the HDFS service. 
+b. Click the Instances tab. 
+c. Click Add Role Instances. 
+d. Click the text box below the HttpFS field. The Select Hosts dialog box 
+displays. 
+e. Select the host on which to run the role and click OK. 
+f. Click Continue. 
+g. Check the checkbox next to the HttpFS role and select Actions for 
+Selected > Start. 
+2. After the command has completed, go to the Hue service. 
+3. Click the Configuration tab. 
+4. Locate the HDFS Web Interface Role property or search for it by typing its 
+name in the Search box. 
+5. Select the HttpFS role you just created instead of the NameNode role, and 
+save your changes. 
+6. Restart the Hue service. 
+
+## Upgrading the Hive Metastore to Use HDFS HA ##  
+1. Go the Hive service. 
+2. Select Actions > Stop. 
+Note: You may want to stop the Hue, oozie and Impala services first, if 
+present, as they depend on the Hive service. Click Stop to confirm the 
+command. 
+3. Back up the Hive metastore database. 
+4. Select Actions > Update Hive Metastore NameNodes and confirm the 
+command. 
+5. Select Actions > Start. 
+6. Restart the Hue, oozie and Impala services if you stopped them prior to 
+updating the metastore. 
