@@ -1,0 +1,19 @@
+1. Go to the YARN service. 
+2. Select Actions > Enable High Availability. A screen showing the hosts that are 
+eligible to run a standby ResourceManager displays.  
+3. Select the host where you want the standby ResourceManager to be installed, 
+and click Continue.  
+
+
+ResourceManager HA doesn't affect the JobHistory Server (JHS). JHS doesn't 
+maintain any state, so if the host fails you can simply assign it to a new host. You 
+can also enable process auto-restart by doing the following: 
+1. Go to the YARN service. 
+2. Click the Configuration tab. 
+3. Select Scope > JobHistory Server. 
+4. Select Category > Advanced. 
+5. Locate the Automatically Restart Process property or search for it by typing its 
+name in the Search box. 
+6. Click Edit Individual Values 
+7. Select the JobHistory Server Default Group. 
+8. Goto Instances > JobHistory Server > Restart the JobHistory Server role. 
